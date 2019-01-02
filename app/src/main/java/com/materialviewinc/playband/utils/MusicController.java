@@ -272,7 +272,7 @@ public class MusicController {
 
 
     public void VerifyPlayButton(int currentAlbumId, int currentMusicId, ImageButton Play) {
-        //committtt
+        //hola
         if (selectedIdAlbum != -1 && selectedIdMusic != -1) {
             if ((Activity) context instanceof AlbumListActivity) {
                 if (selectedIdAlbum == currentAlbumId) {
