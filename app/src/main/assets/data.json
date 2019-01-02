@@ -1,0 +1,179 @@
+{
+  "album": [
+    {
+      "id": 1,
+      "title": "Thriller|War",
+      "subtitle": "Animation|Children",
+      "image": "albumimage1",
+      "music": [
+        {
+          "id": 1,
+          "title": "War",
+          "res": "believe"
+        },
+        {
+          "id": 2,
+          "title": "Second",
+          "res": "second"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Comedy",
+      "subtitle": "Thriller",
+      "image": "albumimage2",
+      "music": [
+        {
+          "id": 3,
+          "title": "Drama",
+          "res": "second"
+        },
+        {
+          "id": 4,
+          "title": "Mystery",
+          "res": "demons"
+        },
+        {
+          "id": 5,
+          "title": "Romance",
+          "res": "khoj"
+        },
+        {
+          "id": 6,
+          "title": "Thriller",
+          "res": "second"
+        },
+        {
+          "id": 14,
+          "title": "Mystery",
+          "res": "demons"
+        },
+        {
+          "id": 15,
+          "title": "Romance",
+          "res": "khoj"
+        },
+        {
+          "id": 16,
+          "title": "Thriller",
+          "res": "second"
+        },
+        {
+          "id": 24,
+          "title": "Mystery",
+          "res": "demons"
+        },
+        {
+          "id": 25,
+          "title": "Romance",
+          "res": "khoj"
+        },
+        {
+          "id": 26,
+          "title": "Thriller",
+          "res": "second"
+        },
+        {
+          "id": 34,
+          "title": "Mystery",
+          "res": "demons"
+        },
+        {
+          "id": 35,
+          "title": "Romance",
+          "res": "khoj"
+        },
+        {
+          "id": 36,
+          "title": "Thriller",
+          "res": "second"
+        },
+        {
+          "id": 44,
+          "title": "Mystery",
+          "res": "demons"
+        },
+        {
+          "id": 45,
+          "title": "Romance",
+          "res": "khoj"
+        },
+        {
+          "id": 46,
+          "title": "Thriller",
+          "res": "second"
+        },
+        {
+          "id": 54,
+          "title": "Mystery",
+          "res": "demons"
+        },
+        {
+          "id": 55,
+          "title": "Romance",
+          "res": "khoj"
+        },
+        {
+          "id": 56,
+          "title": "Thriller",
+          "res": "second"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Comedy|Romance",
+      "subtitle": "Drama",
+      "image": "albumimage1",
+      "music": [
+        {
+          "id": 7,
+          "title": "Documentary",
+          "res": "believe"
+        },
+        {
+          "id": 8,
+          "title": "Khoj",
+          "res": "khoj"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Comedy|Crime|Drama",
+      "subtitle": "Drama",
+      "image": "albumimage2",
+      "music": [
+        {
+          "id": 9,
+          "title": "Crime",
+          "res": "believe"
+        },
+        {
+          "id": 10,
+          "title": "believe",
+          "res": "believe"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Comedy|Crime|Drama|War",
+      "subtitle": "Comedy",
+      "image": "albumimage1",
+      "music": [
+        {
+          "id": 11,
+          "title": "Animation",
+          "res": "believe"
+        },
+        {
+          "id": 12,
+          "title": "Comedy",
+          "res": "khoj"
+        }
+      ]
+    }
+  ]
+}

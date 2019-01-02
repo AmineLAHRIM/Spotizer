@@ -1,0 +1,50 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:navigationBarColor">@color/_semi</item>
+    </style>
+
+    <style name="s_medium">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/_white</item>
+    </style>
+    <style name="s_lightmin">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/montserrat_light</item>
+        <item name="android:textColor">@color/_white</item>
+    </style>
+    <style name="s_light">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/montserrat_light</item>
+        <item name="android:textColor">@color/_white</item>
+    </style>
+    <style name="s_semi">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+    </style>
+    <style name="s_semiplus">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+    </style>
+    <style name="s_regular">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+    <style name="s_regularplus">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="itemlistdetails">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+</resources>

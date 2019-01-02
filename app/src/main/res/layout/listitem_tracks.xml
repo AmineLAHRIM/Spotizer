@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_marginLeft="@dimen/marginAlbum"
+                  android:layout_marginRight="@dimen/marginAlbum"
+                  android:layout_marginBottom="8dp"
+                  android:layout_marginTop="8dp"
+                  android:weightSum="3"
+                  android:orientation="horizontal"
+
+    >
+        <ImageButton android:layout_width="24dp" android:layout_height="24dp"
+                     android:layout_centerVertical="true"
+                     android:src="@drawable/play"
+                     android:id="@+id/imgbtn_play"
+                     android:scaleType="centerCrop"
+
+                     android:layout_weight="0.2"
+                     style="@android:style/Widget.ActionButton.Overflow"
+
+        />
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                  style="@style/s_regular"
+                  android:text="Freedom Boys"
+                  android:textColor="@color/_black"
+                  android:id="@+id/txt_musictitle"
+                  android:layout_centerVertical="true"
+                  android:layout_toRightOf="@id/imgbtn_play"
+                  android:layout_marginLeft="16dp"
+                  android:layout_weight="2"
+        />
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                  android:layout_weight="0.8"
+                  android:textAlignment="textEnd"
+                  style="@style/s_lightmin"
+                  android:textColor="@color/_dark"
+                  android:text="04:21"
+
+        />
+
+    </LinearLayout>
+
+</LinearLayout>

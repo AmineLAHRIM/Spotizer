@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="@drawable/imagebg"
+        tools:context=".Activities.HomeActivity">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+               android:scaleType="centerCrop"
+    />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:gravity="center"
+                  android:layout_marginTop="60dp"
+    >
+        <ImageView android:layout_width="50dp" android:layout_height="50dp"
+                   android:src="@drawable/logo"
+                   android:layout_marginBottom="16dp"
+        />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:text="@string/apptitle"
+                  style="@style/s_medium"
+        />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:text="@string/appsubtitle"
+                  style="@style/s_light"
+        />
+    </LinearLayout>
+    <android.support.v7.widget.CardView android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginBottom="200dp"
+                                        android:layout_centerHorizontal="true"
+                                        app:cardCornerRadius="28dp"
+                                        app:cardUseCompatPadding="true"
+                                        app:cardElevation="10dp"
+    >
+        <Button android:layout_width="180dp" android:layout_height="55dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="@string/startword"
+                style="@style/s_semi"
+                android:textAlignment="center"
+                android:textColor="@color/_blackAlpha"
+                android:id="@+id/btn_getStarted"
+        />
+    </android.support.v7.widget.CardView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="80dp"
+                  android:layout_alignParentBottom="true"
+                  android:background="@color/_white"
+
+    >
+        <Button android:layout_width="0dp" android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                style="@style/s_semiplus"
+                android:text="@string/sign_in"
+                android:textAllCaps="false"
+                android:textColor="@color/_black"
+                android:id="@+id/btn_signin"
+
+        />
+        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/_gris" />
+        <Button android:layout_width="0dp" android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:textAllCaps="false"
+                style="@style/s_semiplus"
+                android:text="@string/sign_up"
+                android:textColor="@color/_dark"
+                android:id="@+id/btn_signup"
+        />
+    </LinearLayout>
+</RelativeLayout>
