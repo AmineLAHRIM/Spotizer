@@ -29,7 +29,6 @@ public class MusicAdapter extends ArrayAdapter<Music> {
         musicController.setSelectedIdAlbum(idAlbum);
         MusicAdapter.idAlbum = idAlbum;
 
-
     }
 
     @Override

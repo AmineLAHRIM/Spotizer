@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -143,6 +144,7 @@ public class MusicController {
                 if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                     mediaPlayer.start();
                 } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                    Log.d("TAGaudiomanager", "onAudioFocusChange: " + audioManager);
                     RelaseMediaPlayer();
                 } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                     mediaPlayer.pause();
@@ -157,10 +159,8 @@ public class MusicController {
             mediaPlayer.release();
             mediaPlayer = null;
 
-            if (audioManager != null) {
-                //Abandon the audioManager for if you quite the activity the audioManager will disapear
-                audioManager.abandonAudioFocus(onAudioFocusChangeListener);
-            }
+            //Abandon the audioManager for if you quite the activity the audioManager will disapear
+            audioManager.abandonAudioFocus(onAudioFocusChangeListener);
 
         }
     }
