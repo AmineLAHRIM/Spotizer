@@ -49,7 +49,6 @@ public class MusicAdapter extends ArrayAdapter<Music> {
         ButtonPlayClick(Play, currentMusic, parent);
         TextView Title = view.findViewById(R.id.txt_musictitle);
         Title.setText(currentMusic.getTitle());
-//        VerifyPlayButton(currentMusic, Play);
         musicController.VerifyPlayButton(0, currentMusic.getId(), Play);
         return view;
     }
@@ -68,14 +67,25 @@ public class MusicAdapter extends ArrayAdapter<Music> {
                     selectedPlay = imgbtnPlay;
                     musicController.setSelectedIdAlbum(MusicAdapter.idAlbum);
                     musicController.setSelectedIdMusic(currentMusic.getId());
+                    if (AlbumAdapter.selectedPlay != null) {
+                        AlbumAdapter.selectedPlay.setImageResource(R.drawable.play);
+                    }
+                    AlbumAdapter.selectedPlay = AlbumAdapter.permentSelectedPlay;
+                    AlbumAdapter.selectedPlay.setImageResource(R.drawable.pause);
                 } else {
                     //Other Click on Diffrent Play Button
                     if (selectedPlay != v) {
+
                         selectedPlay.setImageResource(R.drawable.play);
                         imgbtnPlay.setImageResource(R.drawable.pause);
                         selectedPlay = imgbtnPlay;
                         musicController.setSelectedIdAlbum(MusicAdapter.idAlbum);
                         musicController.setSelectedIdMusic(currentMusic.getId());
+                        if (AlbumAdapter.selectedPlay != null) {
+                            AlbumAdapter.selectedPlay.setImageResource(R.drawable.play);
+                        }
+                        AlbumAdapter.selectedPlay = AlbumAdapter.permentSelectedPlay;
+                        AlbumAdapter.selectedPlay.setImageResource(R.drawable.pause);
                     }
                     //Click on seem Play Button
                     else {

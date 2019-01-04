@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -24,7 +23,7 @@ public class MusicController {
     private static Context context;
     private AudioManager audioManager;
     private AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener;
-    MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;
     private Music playedMusic;
     private Album playedAlbum;
     private int idNextMusic = -1;
@@ -92,14 +91,14 @@ public class MusicController {
         if (ourInstance == null) {
             ourInstance = new MusicController(MusicController.context);
             ourInstance.listener();
+
         }
 
         return ourInstance;
     }
 
     private MusicController(Context context) {
-        this.audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        this.resultAudioFocus = audioManager.requestAudioFocus(onAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+
     }
 
     public void resetMusic() {
@@ -119,6 +118,7 @@ public class MusicController {
             AlbumAdapter.selectedPlay.setImageResource(R.drawable.play);
             AlbumAdapter.selectedPlay = null;
         }
+        AlbumAdapter.permentSelectedPlay = null;
         RelaseMediaPlayer();
 
     }
@@ -134,6 +134,9 @@ public class MusicController {
     }
 
     public void listener() {
+        //how ever have relation with context but it inisilase just one time
+        audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+
         onAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
             @Override
             public void onAudioFocusChange(int focusChange) {
@@ -154,125 +157,121 @@ public class MusicController {
             mediaPlayer.release();
             mediaPlayer = null;
 
-            //Abandon the audioManager for if you quite the activity the audioManager will disapear
-            audioManager.abandonAudioFocus(onAudioFocusChangeListener);
+            if (audioManager != null) {
+                //Abandon the audioManager for if you quite the activity the audioManager will disapear
+                audioManager.abandonAudioFocus(onAudioFocusChangeListener);
+            }
+
         }
     }
 
     public void MusicPlaying(Album currentAlbum, final ViewGroup parent, int position) {
-
         if (currentAlbum == null) {
             currentAlbum = Album.findAlbum(selectedIdAlbum);
         }
 
 
-
         final Album theAlbum = currentAlbum;
-        Log.d("TAGmusic", "MusicPlaying: " + MusicAdapter.selectedPlay);
-        Log.d("TAGmusic", "MusicPlaying: " + AlbumAdapter.selectedPlay);
         if (AlbumAdapter.selectedPlay != null || MusicAdapter.selectedPlay != null) {
-            //Audio Part
-            if (resultAudioFocus == AudioManager.AUDIOFOCUS_GAIN) {
+
 //                final Music currentMusic=null;
-                if ((Activity) context instanceof AlbumListActivity) {
+            if ((Activity) context instanceof AlbumListActivity) {
 
-                    if (idNextMusic == -1) {
-                        //getFirstMusicResourceInAlbum
+                if (idNextMusic == -1) {
+                    //getFirstMusicResourceInAlbum
 //                        currentMusic = currentAlbum.getMusics().get(0);
-                        selectedIdMusic = currentAlbum.getMusics().get(0).getId();
-                    } else {
-                        //getNextMusicResourceInAlbum
+                    selectedIdMusic = currentAlbum.getMusics().get(0).getId();
+                } else {
+                    //getNextMusicResourceInAlbum
 //                        currentMusic = Album.findMusicByIdInAlbum(currentAlbum.getId(), idNextMusic);
-                        selectedIdMusic = Album.findMusicByIdInAlbum(currentAlbum.getId(), idNextMusic).getId();
-                    }
-                } else if ((Activity) context instanceof TrackActivity) {
+                    selectedIdMusic = Album.findMusicByIdInAlbum(currentAlbum.getId(), idNextMusic).getId();
+                }
+            } else if ((Activity) context instanceof TrackActivity) {
 //                    currentMusic = Album.findMusicByIdInAlbum(selectedIdAlbum, selectedIdMusic);
-                    selectedIdMusic = Album.findMusicByIdInAlbum(selectedIdAlbum, selectedIdMusic).getId();
+                selectedIdMusic = Album.findMusicByIdInAlbum(selectedIdAlbum, selectedIdMusic).getId();
 
 
-                }
-
-
-                final Music currentMusic = Album.findMusicByIdInAlbum(selectedIdAlbum, selectedIdMusic);
-                String musicResName = currentMusic.getAudio();
-                int musicResource = context.getResources().getIdentifier(musicResName, "raw", context.getPackageName());
-
-                if(position==-1){
-                    position=Album.getPositionMusicFromAlbum(selectedIdAlbum,selectedIdMusic);
-                }
-                final int currentposition=position;
-                //playMusic
-                this.mediaPlayer = MediaPlayer.create(context, musicResource);
-                this.mediaPlayer.start();
-
-                //MusicOnCompletion
-                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        idNextMusic = Album.nextMusic(selectedIdAlbum, currentMusic.getId());
-
-                        //go to the next music in the Album
-                        if (idNextMusic != -1) {
-                            selectedIdMusic = idNextMusic;
-                            if ((Activity) context instanceof AlbumListActivity) {
-
-                                MusicPlaying(theAlbum, null, -1);
-
-                            } else if ((Activity) context instanceof TrackActivity) {
-
-                                //GetTheNextButtonPlay
-                                ViewGroup father;
-                                if (parent == null) {
-                                    father = (ViewGroup) ((Activity) context).findViewById(R.id.listview_tracks);
-                                }
-                                else {
-                                    father=parent;
-                                }
-
-                                ListView listView = (ListView) father;
-                                int firstPosition = listView.getFirstVisiblePosition() - listView.getHeaderViewsCount();
-                                int firstvisibleposition = listView.getFirstVisiblePosition();
-                                int Nextposition = currentposition + 1;
-                                View NextRow = listView.getChildAt(Nextposition);
-                                ImageButton NextPlay = (ImageButton) NextRow.findViewById(R.id.imgbtn_play);
-
-                                //RefrechTheView
-
-                                if (MusicAdapter.selectedPlay != null) {
-                                    MusicAdapter.selectedPlay.setImageResource(R.drawable.play);
-                                    if (Nextposition >= firstvisibleposition) {
-                                        MusicAdapter.selectedPlay = NextPlay;
-                                        NextPlay.setImageResource(R.drawable.pause);
-                                    }
-                                }
-                                MusicPlaying(theAlbum, null, Nextposition);
-
-                            }
-                        }
-                        //if is the last music in the Album
-                        else {
-
-                            resetAll();
-                            idNextMusic = -1;
-                        }
-
-
-                    }
-                });
-                selectedIdAlbum = currentAlbum.getId();
-                selectedIdMusic = currentMusic.getId();
             }
 
 
-        }
+            final Music currentMusic = Album.findMusicByIdInAlbum(selectedIdAlbum, selectedIdMusic);
+            String musicResName = currentMusic.getAudio();
+            int musicResource = context.getResources().getIdentifier(musicResName, "raw", context.getPackageName());
 
+            if (position == -1) {
+                position = Album.getPositionMusicFromAlbum(selectedIdAlbum, selectedIdMusic);
+            }
+            final int currentposition = position;
+            //playMusic
+            //Audio Part
+            resultAudioFocus = audioManager.requestAudioFocus(onAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+            if (resultAudioFocus == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                this.mediaPlayer = MediaPlayer.create(context, musicResource);
+                this.mediaPlayer.start();
+            }
+            //MusicOnCompletion
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    idNextMusic = Album.nextMusic(selectedIdAlbum, currentMusic.getId());
+
+                    //go to the next music in the Album
+                    if (idNextMusic != -1) {
+                        selectedIdMusic = idNextMusic;
+                        if ((Activity) context instanceof AlbumListActivity) {
+
+                            MusicPlaying(theAlbum, null, -1);
+
+                        } else if ((Activity) context instanceof TrackActivity) {
+
+                            //GetTheNextButtonPlay
+                            ViewGroup father;
+                            if (parent == null) {
+                                father = (ViewGroup) ((Activity) context).findViewById(R.id.listview_tracks);
+                            } else {
+                                father = parent;
+                            }
+
+                            ListView listView = (ListView) father;
+                            int firstPosition = listView.getFirstVisiblePosition() - listView.getHeaderViewsCount();
+                            int firstvisibleposition = listView.getFirstVisiblePosition();
+                            int Nextposition = currentposition + 1;
+                            View NextRow = listView.getChildAt(Nextposition);
+                            ImageButton NextPlay = (ImageButton) NextRow.findViewById(R.id.imgbtn_play);
+
+                            //RefrechTheView
+
+                            if (MusicAdapter.selectedPlay != null) {
+                                MusicAdapter.selectedPlay.setImageResource(R.drawable.play);
+                                if (Nextposition >= firstvisibleposition) {
+                                    MusicAdapter.selectedPlay = NextPlay;
+                                    NextPlay.setImageResource(R.drawable.pause);
+                                }
+                            }
+                            MusicPlaying(theAlbum, null, Nextposition);
+
+                        }
+                    }
+                    //if is the last music in the Album
+                    else {
+
+                        resetAll();
+                        idNextMusic = -1;
+                    }
+
+
+                }
+            });
+            selectedIdAlbum = currentAlbum.getId();
+            selectedIdMusic = currentMusic.getId();
+        }
 
 
     }
 
 
     public void VerifyPlayButton(int currentAlbumId, int currentMusicId, ImageButton Play) {
-        //committtt
+
         if (selectedIdAlbum != -1 && selectedIdMusic != -1) {
             if ((Activity) context instanceof AlbumListActivity) {
                 if (selectedIdAlbum == currentAlbumId) {

@@ -103,7 +103,7 @@ public class AlbumListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         MusicController musicController= MusicController.getInstance(AlbumListActivity.this);
-        musicController.VerifyPlayButton(musicController.getSelectedIdAlbum(),-1, AlbumAdapter.selectedPlay);
+        AlbumAdapter.permentSelectedPlay=null;
 
     }
 }
