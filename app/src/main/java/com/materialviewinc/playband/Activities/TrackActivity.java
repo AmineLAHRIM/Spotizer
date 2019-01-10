@@ -71,4 +71,14 @@ public class TrackActivity extends AppCompatActivity {
 //        musicController.VerifyPlayButton(0,musicController.getSelectedIdMusic(), MusicAdapter.selectedPlay);
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MusicController musicController = MusicController.getInstance(TrackActivity.this);
+
+        if(musicController.getSelectedIdMusic()==-1){
+            MusicController.getInstance(this).resetAlbum();
+        }
+    }
 }

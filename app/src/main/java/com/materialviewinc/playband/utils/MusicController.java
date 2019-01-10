@@ -187,10 +187,7 @@ public class MusicController {
                     selectedIdMusic = Album.findMusicByIdInAlbum(currentAlbum.getId(), idNextMusic).getId();
                 }
             } else if ((Activity) context instanceof TrackActivity) {
-//                    currentMusic = Album.findMusicByIdInAlbum(selectedIdAlbum, selectedIdMusic);
-                selectedIdMusic = Album.findMusicByIdInAlbum(selectedIdAlbum, selectedIdMusic).getId();
-
-
+                //this condition was checked in first function call MusicAdapter
             }
 
 

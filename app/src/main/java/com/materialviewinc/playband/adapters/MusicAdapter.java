@@ -26,7 +26,7 @@ public class MusicAdapter extends ArrayAdapter<Music> {
 
     public MusicAdapter(Context context, ArrayList<Music> data, int idAlbum) {
         super(context, 0, data);
-        musicController.setSelectedIdAlbum(idAlbum);
+        //musicController.setSelectedIdAlbum(idAlbum);
         MusicAdapter.idAlbum = idAlbum;
 
     }
@@ -57,6 +57,7 @@ public class MusicAdapter extends ArrayAdapter<Music> {
             @Override
             public void onClick(View v) {
                 musicController.RelaseMediaPlayer();
+                musicController.setSelectedIdAlbum(idAlbum);
 
                 final ImageButton imgbtnPlay = (ImageButton) v;
 
@@ -88,39 +89,19 @@ public class MusicAdapter extends ArrayAdapter<Music> {
                     }
                     //Click on seem Play Button
                     else {
-                        musicController.resetAll();
+                        //musicController.resetAll();
+                        musicController.resetMusic();
                     }
                 }
 
                 //PLAYING MUSIC
-                musicController.MusicPlaying(null, parent, getPosition(currentMusic));
+                //because if no id music in playing music the case of this activity not
+                if (musicController.getSelectedIdMusic() != -1) {
+                    musicController.MusicPlaying(null, parent, getPosition(currentMusic));
+                }
 
             }
         });
-    }
-
-
-    private void VerifyPlayButton(Music currentMusic, ImageButton Play) {
-        int playedIdAlbum = musicController.getSelectedIdAlbum();
-        int playedIdMusic = musicController.getSelectedIdMusic();
-
-        if (playedIdAlbum != -1 && playedIdMusic != -1) {
-            if (playedIdMusic == currentMusic.getId()) {
-                //this condition for if we return to | the Activity or the View Row | Verify if there is a Played Music to Change Image of Play to Pause
-                if (Play != null) {
-                    Play.setImageResource(R.drawable.pause);
-                    selectedPlay = Play;
-                }
-
-            } else {
-                //this condition for this a Recycle view that every 3 row had
-                // the seem ID for the Views in that row like the Image of
-                // Play of 0 is also of 3
-                if (Play != null) {
-                    Play.setImageResource(R.drawable.play);
-                }
-            }
-        }
     }
 
 
