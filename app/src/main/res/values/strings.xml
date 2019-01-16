@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Playband</string>
-    <string name="apptitle">Playband</string>
-    <string name="appsubtitle">UI Kit</string>
+    <string name="apptitle">Spotizer</string>
+    <string name="appsubtitle">By @lahrimamine</string>
     <string name="startword">GET STARTED</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_in">Sign In</string>

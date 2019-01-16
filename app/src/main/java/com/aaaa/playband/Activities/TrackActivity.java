@@ -1,4 +1,4 @@
-package com.materialviewinc.playband.Activities;
+package com.aaaa.playband.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import com.materialviewinc.playband.R;
-import com.materialviewinc.playband.adapters.MusicAdapter;
-import com.materialviewinc.playband.classes.Album;
-import com.materialviewinc.playband.classes.Music;
-import com.materialviewinc.playband.utils.MusicController;
+import com.aaaa.playband.R;
+import com.aaaa.playband.adapters.MusicAdapter;
+import com.aaaa.playband.classes.Album;
+import com.aaaa.playband.classes.Music;
+import com.aaaa.playband.utils.MusicController;
 
 import java.util.ArrayList;
 

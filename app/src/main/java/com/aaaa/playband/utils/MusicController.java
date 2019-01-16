@@ -1,21 +1,20 @@
-package com.materialviewinc.playband.utils;
+package com.aaaa.playband.utils;
 
 import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import com.materialviewinc.playband.Activities.AlbumListActivity;
-import com.materialviewinc.playband.Activities.TrackActivity;
-import com.materialviewinc.playband.R;
-import com.materialviewinc.playband.adapters.AlbumAdapter;
-import com.materialviewinc.playband.adapters.MusicAdapter;
-import com.materialviewinc.playband.classes.Album;
-import com.materialviewinc.playband.classes.Music;
+import com.aaaa.playband.Activities.AlbumListActivity;
+import com.aaaa.playband.Activities.TrackActivity;
+import com.aaaa.playband.R;
+import com.aaaa.playband.adapters.AlbumAdapter;
+import com.aaaa.playband.adapters.MusicAdapter;
+import com.aaaa.playband.classes.Album;
+import com.aaaa.playband.classes.Music;
 
 public class MusicController {
 
@@ -144,7 +143,6 @@ public class MusicController {
                 if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                     mediaPlayer.start();
                 } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
-                    Log.d("TAGaudiomanager", "onAudioFocusChange: " + audioManager);
                     RelaseMediaPlayer();
                 } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                     mediaPlayer.pause();
@@ -159,8 +157,10 @@ public class MusicController {
             mediaPlayer.release();
             mediaPlayer = null;
 
-            //Abandon the audioManager for if you quite the activity the audioManager will disapear
-            audioManager.abandonAudioFocus(onAudioFocusChangeListener);
+            if (audioManager != null) {
+                //Abandon the audioManager for if you quite the activity the audioManager will disapear
+                audioManager.abandonAudioFocus(onAudioFocusChangeListener);
+            }
 
         }
     }

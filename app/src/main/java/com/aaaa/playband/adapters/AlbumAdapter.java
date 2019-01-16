@@ -1,4 +1,4 @@
-package com.materialviewinc.playband.adapters;
+package com.aaaa.playband.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.materialviewinc.playband.Activities.TrackActivity;
-import com.materialviewinc.playband.R;
-import com.materialviewinc.playband.classes.Album;
-import com.materialviewinc.playband.utils.MusicController;
+import com.aaaa.playband.Activities.TrackActivity;
+import com.aaaa.playband.R;
+import com.aaaa.playband.classes.Album;
+import com.aaaa.playband.utils.MusicController;
 
 import java.util.ArrayList;
 
@@ -33,7 +33,6 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         final Album currentAlbum = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listitem_albums, null);
-
         }
         final View view = convertView;
         String albumImagename = currentAlbum.getImageAlbum();

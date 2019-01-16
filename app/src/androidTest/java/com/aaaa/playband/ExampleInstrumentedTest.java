@@ -1,4 +1,4 @@
-package com.materialviewinc.playband;
+package com.aaaa.playband;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

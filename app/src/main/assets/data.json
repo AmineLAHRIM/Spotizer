@@ -2,7 +2,7 @@
   "album": [
     {
       "id": 1,
-      "title": "Thriller|War",
+      "title": "Demons",
       "subtitle": "Animation|Children",
       "image": "albumimage1",
       "music": [
@@ -45,17 +45,17 @@
           "res": "second"
         },
         {
-          "id": 14,
+          "id": 23,
           "title": "Mystery",
           "res": "demons"
         },
         {
-          "id": 15,
+          "id": 24,
           "title": "Romance",
           "res": "khoj"
         },
         {
-          "id": 16,
+          "id": 23,
           "title": "Thriller",
           "res": "second"
         },
