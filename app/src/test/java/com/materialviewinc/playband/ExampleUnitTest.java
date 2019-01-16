@@ -1,4 +1,4 @@
-package com.aaaa.playband;
+package com.materialviewinc.playband;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.aaaa.playband.adapters;
+package com.materialviewinc.playband.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import com.aaaa.playband.R;
-import com.aaaa.playband.classes.Music;
-import com.aaaa.playband.utils.MusicController;
+import com.materialviewinc.playband.R;
+import com.materialviewinc.playband.classes.Music;
+import com.materialviewinc.playband.utils.MusicController;
 
 import java.util.ArrayList;
 

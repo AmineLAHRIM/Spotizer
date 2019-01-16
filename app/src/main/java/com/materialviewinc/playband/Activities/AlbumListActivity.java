@@ -1,4 +1,4 @@
-package com.aaaa.playband.Activities;
+package com.materialviewinc.playband.Activities;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -7,12 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import com.aaaa.playband.R;
-import com.aaaa.playband.adapters.AlbumAdapter;
-import com.aaaa.playband.classes.Album;
-import com.aaaa.playband.classes.Music;
-import com.aaaa.playband.data.PlaybandDbHelper;
-import com.aaaa.playband.utils.MusicController;
+import com.materialviewinc.playband.R;
+import com.materialviewinc.playband.adapters.AlbumAdapter;
+import com.materialviewinc.playband.classes.Album;
+import com.materialviewinc.playband.classes.Music;
+import com.materialviewinc.playband.data.PlaybandDbHelper;
+import com.materialviewinc.playband.utils.MusicController;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

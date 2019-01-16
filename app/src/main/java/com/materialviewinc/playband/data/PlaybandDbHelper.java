@@ -1,11 +1,11 @@
-package com.aaaa.playband.data;
+package com.materialviewinc.playband.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import com.aaaa.playband.data.PlaybandContract.AlbumEntry;
-import com.aaaa.playband.data.PlaybandContract.MusicEntry;
+import com.materialviewinc.playband.data.PlaybandContract.AlbumEntry;
+import com.materialviewinc.playband.data.PlaybandContract.MusicEntry;
 
 
 public class PlaybandDbHelper extends SQLiteOpenHelper {

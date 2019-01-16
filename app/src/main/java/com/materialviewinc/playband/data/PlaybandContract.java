@@ -1,4 +1,4 @@
-package com.aaaa.playband.data;
+package com.materialviewinc.playband.data;
 
 import android.provider.BaseColumns;
 
