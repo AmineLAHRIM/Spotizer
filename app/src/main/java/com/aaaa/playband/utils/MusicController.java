@@ -211,15 +211,15 @@ public class MusicController {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     idNextMusic = Album.nextMusic(selectedIdAlbum, currentMusic.getId());
-
+                    Activity currentActivity = (Activity) context;
                     //go to the next music in the Album
                     if (idNextMusic != -1) {
                         selectedIdMusic = idNextMusic;
-                        if ((Activity) context instanceof AlbumListActivity) {
+                        if (currentActivity instanceof AlbumListActivity) {
 
                             MusicPlaying(theAlbum, null, -1);
 
-                        } else if ((Activity) context instanceof TrackActivity) {
+                        } else if (currentActivity instanceof TrackActivity) {
 
                             //GetTheNextButtonPlay
                             ViewGroup father;
@@ -232,15 +232,19 @@ public class MusicController {
                             ListView listView = (ListView) father;
                             int firstPosition = listView.getFirstVisiblePosition() - listView.getHeaderViewsCount();
                             int firstvisibleposition = listView.getFirstVisiblePosition();
+                            int lastvisibleposition = listView.getLastVisiblePosition();
                             int Nextposition = currentposition + 1;
-                            View NextRow = listView.getChildAt(Nextposition);
-                            ImageButton NextPlay = (ImageButton) NextRow.findViewById(R.id.imgbtn_play);
 
                             //RefrechTheView
 
                             if (MusicAdapter.selectedPlay != null) {
                                 MusicAdapter.selectedPlay.setImageResource(R.drawable.play);
-                                if (Nextposition >= firstvisibleposition) {
+                                //check if NextPosition Between first Visibe position and last Visible Position
+                                if (Nextposition >= firstvisibleposition && Nextposition<=lastvisibleposition) {
+
+                                    View NextRow = listView.getChildAt(Nextposition-firstvisibleposition);
+                                    ImageButton NextPlay = (ImageButton) NextRow.findViewById(R.id.imgbtn_play);
+
                                     MusicAdapter.selectedPlay = NextPlay;
                                     NextPlay.setImageResource(R.drawable.pause);
                                 }
@@ -252,7 +256,12 @@ public class MusicController {
                     //if is the last music in the Album
                     else {
 
-                        resetAll();
+//                        resetAll();
+                        if (currentActivity instanceof AlbumListActivity) {
+                            resetAll();
+                        } else if (currentActivity instanceof TrackActivity) {
+                            resetMusic();
+                        }
                         idNextMusic = -1;
                     }
 

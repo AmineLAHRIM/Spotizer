@@ -1,6 +1,5 @@
 package com.aaaa.playband.Activities;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +11,10 @@ import com.aaaa.playband.R;
 import com.aaaa.playband.adapters.AlbumAdapter;
 import com.aaaa.playband.classes.Album;
 import com.aaaa.playband.classes.Music;
-import com.aaaa.playband.data.PlaybandContract.AlbumEntry;
-import com.aaaa.playband.data.PlaybandContract.MusicEntry;
 import com.aaaa.playband.data.PlaybandDbHelper;
 import com.aaaa.playband.utils.MusicController;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class AlbumListActivity extends AppCompatActivity {
         ArrayList<Album> Albums = new ArrayList<>();
         ArrayList<Music> Musics = new ArrayList<>();
 
-        final String MY_QUERY = "SELECT * FROM " + AlbumEntry.TABLE_NAME + " as a INNER JOIN " + MusicEntry.TABLE_NAME + " as b on a." + AlbumEntry.ID + "=b." + MusicEntry.ALBUM_ID + " ORDER BY a." + AlbumEntry.ID;
+        /*final String MY_QUERY = "SELECT * FROM " + AlbumEntry.TABLE_NAME + " as a INNER JOIN " + MusicEntry.TABLE_NAME + " as b on a." + AlbumEntry.ID + "=b." + MusicEntry.ALBUM_ID + " ORDER BY a." + AlbumEntry.ID;
         Cursor C = db.rawQuery(MY_QUERY, null);
         try {
             C.moveToFirst();
@@ -90,10 +89,10 @@ public class AlbumListActivity extends AppCompatActivity {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
         Log.d("TAGAlbums", "onCreate: "+Albums);
         Log.d("TAGAlbums", "onCreate: "+Albums);
-        /*try {
+        try {
             jsonLocation = loadJSONFromAsset();
             JSONObject jsonObject = new JSONObject(jsonLocation);
             JSONArray albums = jsonObject.getJSONArray("album");
@@ -119,7 +118,6 @@ public class AlbumListActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-*/
 
         AlbumAdapter arrayAdapter_Album = new AlbumAdapter(this, Albums);
 

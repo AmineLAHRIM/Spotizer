@@ -30,37 +30,37 @@
           "res": "second"
         },
         {
-          "id": 4,
+          "id": 5,
           "title": "Mystery",
           "res": "demons"
         },
         {
-          "id": 5,
+          "id": 4,
           "title": "Romance",
           "res": "khoj"
+        },
+        {
+          "id": 24,
+          "title": "Thriller",
+          "res": "second"
+        },
+        {
+          "id": 23,
+          "title": "Mystery",
+          "res": "demons"
         },
         {
           "id": 6,
-          "title": "Thriller",
-          "res": "second"
-        },
-        {
-          "id": 23,
-          "title": "Mystery",
-          "res": "demons"
-        },
-        {
-          "id": 24,
           "title": "Romance",
           "res": "khoj"
         },
         {
-          "id": 23,
+          "id": 21,
           "title": "Thriller",
           "res": "second"
         },
         {
-          "id": 24,
+          "id": 22,
           "title": "Mystery",
           "res": "demons"
         },
