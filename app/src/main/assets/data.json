@@ -2,7 +2,7 @@
   "album": [
     {
       "id": 1,
-      "title": "Thriller|War",
+      "title": "Demons",
       "subtitle": "Animation|Children",
       "image": "albumimage1",
       "music": [
@@ -30,37 +30,37 @@
           "res": "second"
         },
         {
-          "id": 4,
-          "title": "Mystery",
-          "res": "demons"
-        },
-        {
           "id": 5,
-          "title": "Romance",
-          "res": "khoj"
-        },
-        {
-          "id": 6,
-          "title": "Thriller",
-          "res": "second"
-        },
-        {
-          "id": 14,
           "title": "Mystery",
           "res": "demons"
         },
         {
-          "id": 15,
+          "id": 4,
           "title": "Romance",
           "res": "khoj"
-        },
-        {
-          "id": 16,
-          "title": "Thriller",
-          "res": "second"
         },
         {
           "id": 24,
+          "title": "Thriller",
+          "res": "second"
+        },
+        {
+          "id": 23,
+          "title": "Mystery",
+          "res": "demons"
+        },
+        {
+          "id": 6,
+          "title": "Romance",
+          "res": "khoj"
+        },
+        {
+          "id": 21,
+          "title": "Thriller",
+          "res": "second"
+        },
+        {
+          "id": 22,
           "title": "Mystery",
           "res": "demons"
         },
@@ -125,7 +125,7 @@
       "id": 3,
       "title": "Comedy|Romance",
       "subtitle": "Drama",
-      "image": "albumimage1",
+      "image": "albumimage3",
       "music": [
         {
           "id": 7,
@@ -159,9 +159,9 @@
     },
     {
       "id": 5,
-      "title": "Comedy|Crime|Drama|War",
+      "title": "Hola",
       "subtitle": "Comedy",
-      "image": "albumimage1",
+      "image": "albumimage4",
       "music": [
         {
           "id": 11,
@@ -170,6 +170,60 @@
         },
         {
           "id": 12,
+          "title": "Comedy",
+          "res": "khoj"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Album of Boys",
+      "subtitle": "Comedy",
+      "image": "albumimage5",
+      "music": [
+        {
+          "id": 13,
+          "title": "Animation",
+          "res": "believe"
+        },
+        {
+          "id": 14,
+          "title": "Comedy",
+          "res": "khoj"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Drama Music",
+      "subtitle": "Comedy",
+      "image": "albumimage6",
+      "music": [
+        {
+          "id": 15,
+          "title": "Animation",
+          "res": "believe"
+        },
+        {
+          "id": 16,
+          "title": "Comedy",
+          "res": "khoj"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Music Drug",
+      "subtitle": "Dragons Imagine",
+      "image": "albumimage7",
+      "music": [
+        {
+          "id": 17,
+          "title": "Animation",
+          "res": "believe"
+        },
+        {
+          "id": 18,
           "title": "Comedy",
           "res": "khoj"
         }

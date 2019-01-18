@@ -1,0 +1,16 @@
+Index: app/src/main/java/com/materialviewinc/playband/utils/MusicController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/materialviewinc/playband/utils/MusicController.java	(revision 9e92b8aa871d690f17a2fce7f0e5fe7907d96a34)
++++ app/src/main/java/com/materialviewinc/playband/utils/MusicController.java	(revision c6a7f0c321cb22858158078840bef678774427c2)
+@@ -272,7 +272,7 @@
+ 
+ 
+     public void VerifyPlayButton(int currentAlbumId, int currentMusicId, ImageButton Play) {
+-        //committtt
++        //hola
+         if (selectedIdAlbum != -1 && selectedIdMusic != -1) {
+             if ((Activity) context instanceof AlbumListActivity) {
+                 if (selectedIdAlbum == currentAlbumId) {

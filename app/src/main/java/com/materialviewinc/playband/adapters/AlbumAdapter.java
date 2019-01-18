@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class AlbumAdapter extends ArrayAdapter<Album> {
 
     public static ImageButton selectedPlay;
+    public static ImageButton permentSelectedPlay;
     int idNextMusic = -1;
     public MusicController musicController = MusicController.getInstance(getContext());
 
@@ -27,13 +28,13 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final Album currentAlbum = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listitem_albums, null);
-
         }
+        final View view = convertView;
         String albumImagename = currentAlbum.getImageAlbum();
         final int ResourceImage = getContext().getResources().getIdentifier(albumImagename, "drawable", getContext().getPackageName());
         if (ResourceImage != -1) {
@@ -45,6 +46,8 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
                     Intent intentTrack = new Intent(getContext(), TrackActivity.class);
                     intentTrack.putExtra("ResourceImage", ResourceImage);
                     intentTrack.putExtra("idAlbum", currentAlbum.getId());
+
+                    permentSelectedPlay = view.findViewById(R.id.imgbtn_play);
                     getContext().startActivity(intentTrack);
                     //((Activity) getContext()).finish();
                 }
@@ -58,7 +61,7 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         ButtonPlayClick(Play, currentAlbum);
 
 
-        musicController.VerifyPlayButton(currentAlbum.getId(),-1, Play);
+        musicController.VerifyPlayButton(currentAlbum.getId(), -1, Play);
 
         Title.setText(currentAlbum.getTitle());
         SubTitle.setText(currentAlbum.getSubTitle());
